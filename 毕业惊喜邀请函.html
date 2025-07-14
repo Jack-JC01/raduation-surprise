@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕业惊喜一日游邀请函</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'KaiTi', '楷体', 'STKaiti', serif;
+            background: linear-gradient(135deg, #f9f7fe 0%, #e3f2fd 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            border: 8px solid #fff;
+            outline: 2px solid #5d8aa8;
+        }
+        
+        header {
+            background: linear-gradient(120deg, #1e5799 0%, #4a8fd8 50%, #1e5799 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            letter-spacing: 3px;
+            color: #ffec8b;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            opacity: 0.92;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        
+        .decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .circle:nth-child(1) {
+            width: 140px;
+            height: 140px;
+            top: -40px;
+            left: -40px;
+        }
+        
+        .circle:nth-child(2) {
+            width: 90px;
+            height: 90px;
+            bottom: -30px;
+            right: 40px;
+        }
+        
+        .circle:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            top: 60px;
+            right: 120px;
+        }
+        
+        .invitation-content {
+            padding: 50px 40px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+            line-height: 1.9;
+            font-size: 1.3rem;
+        }
+        
+        .greeting {
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+            color: #1e5799;
+            font-weight: bold;
+            position: relative;
+            padding-left: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+        
+        .greeting::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            height: 40px;
+            width: 10px;
+            background: #ff6b6b;
+            border-radius: 5px;
+        }
+        
+        .message {
+            font-size: 1.35rem;
+            margin-bottom: 30px;
+            color: #444;
+            padding-right: 15px;
+            text-indent: 2em;
+        }
+        
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(255, 215, 100, 0.4) 60%);
+            font-weight: bold;
+            padding: 0 3px;
+        }
+        
+        .qr-section {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f8faff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 2px dashed #5d8aa8;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qr-title {
+            font-size: 1.7rem;
+            color: #1e5799;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .qr-code {
+            width: 220px;
+            height: 220px;
+            background: #fff;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            border: 1px solid #e0e8f5;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .qr-code:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .qr-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, #1e5799 25%, transparent 25%, transparent 75%, #1e5799 75%),
+                linear-gradient(45deg, #1e5799 25%, transparent 25%, transparent 75%, #1e5799 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.1;
+        }
+        
+        .qr-center {
+            width: 65px;
+            height: 65px;
+            background: #1e5799;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .qr-center i {
+            font-size: 32px;
+            color: white;
+        }
+        
+        .scan-instruction {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+            font-weight: bold;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+        
+        .surprise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
+        
+        .surprise-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .surprise-card {
+            background: linear-gradient(135deg, #ffd7e8 0%, #c8f4f9 100%);
+            border-radius: 25px;
+            padding: 60px 50px;
+            text-align: center;
+            max-width: 90%;
+            width: 650px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 15px solid white;
+        }
+        
+        .surprise-overlay.active .surprise-card {
+            transform: scale(1);
+        }
+        
+        .surprise-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 4rem;
+            color: #d40078;
+            margin-bottom: 30px;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            letter-spacing: 3px;
+        }
+        
+        .surprise-message {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+        
+        .surprise-highlight {
+            font-size: 3.2rem;
+            color: #e91e63;
+            font-weight: bold;
+            margin: 30px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(transparent 60%, rgba(255, 235, 59, 0.4) 60%);
+            display: inline-block;
+            padding: 0 15px;
+            border-radius: 10px;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .close-surprise {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+            font-size: 22px;
+            color: #ff6b6b;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .close-surprise:hover {
+            transform: rotate(90deg);
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        footer {
+            background: #f0f5ff;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            border-top: 1px solid #e0e8f5;
+        }
+        
+        .heart {
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartbeat 1.2s infinite;
+            margin: 0 5px;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.1;
+        }
+        
+        .corner-top-left {
+            top: 20px;
+            left: 20px;
+            border-top: 4px solid #1e5799;
+            border-left: 4px solid #1e5799;
+        }
+        
+        .corner-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 4px solid #1e5799;
+            border-right: 4px solid #1e5799;
+        }
+        
+        @media (max-width: 768px) {
+            .invitation-content {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+            
+            .qr-section {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .surprise-title {
+                font-size: 3rem;
+            }
+            
+            .surprise-message {
+                font-size: 2rem;
+            }
+            
+            .surprise-highlight {
+                font-size: 2.3rem;
+            }
+            
+            .greeting {
+                font-size: 2rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="corner-decoration corner-top-left"></div>
+        <div class="corner-decoration corner-bottom-right"></div>
+        
+        <header>
+            <div class="decoration">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div class="header-content">
+                <h1 class="floating">毕业惊喜邀请函</h1>
+                <div class="subtitle">一份需要你亲手解锁的神秘礼物</div>
+            </div>
+        </header>
+        
+        <div class="invitation-content">
+            <div class="text-content">
+                <div class="greeting">Hello！！！</div>
+                
+                <p class="message">
+                    恭喜你顺利完成学业，迎来了人生中这个闪耀的时刻！🎓 你的努力、坚持与才华，我们都看在眼里，真心为你感到骄傲！✨
+                </p>
+                
+                <p class="message">
+                    为了庆祝这个重要的里程碑，我为你精心准备了一份<span class="highlight">特别的毕业贺礼</span>。这不是普通的礼物，而是一个需要你亲手<span class="highlight">"解锁"的惊喜体验</span>！
+                </p>
+                
+                <p class="message">
+                    请用手机扫描右侧的<span class="highlight">神秘二维码</span>，揭开属于你的毕业彩蛋！🎁 相信我，这绝对值得你此刻的好奇心！
+                </p>
+                
+                <p class="message">
+                    期待与你共同分享这份毕业的喜悦，创造属于我们的美好回忆！🌈
+                </p>
+            </div>
+            
+            <div class="qr-section">
+                <div class="qr-title">扫描解锁惊喜</div>
+                <div class="qr-code" id="qr-code">
+                    <div class="qr-pattern"></div>
+                    <div class="qr-center">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                </div>
+                <div class="scan-instruction">
+                    <i class="fas fa-mobile-alt"></i> 点击或扫描二维码
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            用心制作，只为特别的你 <span class="heart">❤</span> | 毕业快乐，前程似锦！
+        </footer>
+    </div>
+    
+    <!-- 扫描二维码后显示的惊喜页面 -->
+    <div class="surprise-overlay" id="surprise-overlay">
+        <div class="surprise-card" id="surprise-card">
+            <div class="close-surprise" id="close-surprise">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="surprise-title">毕业快乐！</h2>
+            <div class="surprise-message">你是最棒的！！！ ✨</div>
+            <div class="surprise-highlight">恭喜荣获</div>
+            <div class="surprise-message">小树苗一日游特别配套 🌱</div>
+        </div>
+    </div>
+
+    <script>
+        // 二维码点击事件
+        document.getElementById('qr-code').addEventListener('click', function() {
+            document.getElementById('surprise-overlay').classList.add('active');
+            createConfetti();
+        });
+        
+        // 关闭惊喜页面
+        document.getElementById('close-surprise').addEventListener('click', function() {
+            document.getElementById('surprise-overlay').classList.remove('active');
+        });
+        
+        // 创建彩色纸屑效果
+        function createConfetti() {
+            const container = document.getElementById('surprise-card');
+            const colors = ['#ffd700', '#ff6b6b', '#4ecdc4', '#6a0572', '#1a936f', '#ff9e80', '#80deea', '#dce775'];
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (Math.random() * 20 + 10) + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                container.appendChild(confetti);
+                
+                // 动画结束后移除元素
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // 模拟手机扫码效果
+        if (window.innerWidth > 768) {
+            setInterval(() => {
+                document.querySelector('.scan-instruction').style.animation = 'none';
+                setTimeout(() => {
+                    document.querySelector('.scan-instruction').style.animation = 'pulse 2s infinite';
+                }, 10);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
